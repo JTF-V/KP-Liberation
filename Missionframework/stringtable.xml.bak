@@ -46,7 +46,7 @@
 <Project name="Liberation">
     <Package name="Liberation">
         <Key ID="STR_MISSION_TITLE">
-            <Original>CTI 34 KP Liberation v0.96.7a</Original>
+            <Original>CTI 34 KP Liberation Malden v0.96.7a</Original>
         </Key>
         <Key ID="STR_MISSION_VERSION">
             <Original>v0.96.7a</Original>
@@ -7318,23 +7318,4 @@
             <Czech>KP Player Menu v1.0.2\nby Wyqer</Czech>
         </Key>
     </Package>
-</Project>
-<Project name="Apex Framework">
-    <Container name="QS_xml_userActions">
-		<Key ID="STR_QS_Interact_001">
-            <Original>Drag</Original>
-            <Chinesesimp>拖拽</Chinesesimp>
-            <Chinese>拖曳</Chinese>
-        </Key>
-        <Key ID="STR_QS_Interact_002">
-            <Original>Carry</Original>
-            <Chinesesimp>背负</Chinesesimp>
-            <Chinese>背負</Chinese>
-        </Key>
-        <Key ID="STR_QS_Interact_010">
-            <Original>Release</Original>
-            <Chinesesimp>释放</Chinesesimp>
-            <Chinese>釋放</Chinese>
-        </Key>
-	</Container>
 </Project>

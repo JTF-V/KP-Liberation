@@ -230,6 +230,21 @@ class CfgDiscordRichPresence {
 class CfgFunctions {
     #include "CfgFunctions.hpp"
     #include "KP\KPPLM\KPPLM_functions.hpp"
+<<<<<<< Updated upstream
+=======
+	#include "scripts\GOM\functions\GOM_fnc_functions.hpp" // Aircraft Loadout script
+    #include "Txu_Info\CfgFunctions.hpp" // Briefing clickable buttons
+    class dragncarry {file = "functions\fn_dragncarry.sqf";};
+    class QS {
+        class apex_framework {
+            class clientInteractCarry {file = "functions\qs\fn_clientInteractCarry.sqf";};
+            class clientInteractDrag {file = "functions\qs\fn_clientInteractDrag.sqf";};
+            class clientInteractRelease {file = "functions\qs\fn_clientInteractRelease.sqf";};
+			class clientDisableUserInput {file = "functions\qs\fn_clientDisableUserInput.sqf";};
+            class getCustomCargoParams {file = "functions\qs\fn_getCustomCargoParams.sqf";};
+		};
+	};
+>>>>>>> Stashed changes
 };
 
 class CfgRespawnTemplates {
