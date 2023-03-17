@@ -157,9 +157,9 @@ class Params {
     };
     class ReviveDuration {
         title = $STR_A3_ReviveDuration;
-        values[] = {6, 8, 10,12, 15, 20, 25, 30};
+        values[] = {6, 8, 10, 12, 15, 20, 25, 30};
         texts[] = {6, 8, 10, 12, 15, 20, 25, 30};
-        default = 8;
+        default = 12;
     };
     class ReviveRequiredTrait {
         title = $STR_A3_RequiredTrait;
