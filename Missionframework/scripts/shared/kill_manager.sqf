@@ -1,4 +1,4 @@
-params ["_unit", "_killer"];
+params ["_unit", "_killer", "_instigator"];
 
 if (isServer) then {
 
@@ -25,8 +25,13 @@ if (isServer) then {
     if (isNil "armor_weight") then {armor_weight = 33};
     if (isNil "air_weight") then {air_weight = 33};
 
+    // This is for UAV situations. In the case of a UAV kill, the player isn't the killer, they are the instigator
+    private _player = "";
+    if (isPlayer _killer) then { _player = _killer; };
+    if (isPlayer _instigator) then { _player = _instigator; };
+    
     // Distance & Weapon used
-    private _distance = _killer distance2D _unit; //Distance
+    private _distance = _killer distance2D _unit;
     private _killerWeapon = getText(configFile >> "CfgWeapons" >> currentWeapon (vehicle _killer) >> "displayname");
 
     // BLUFOR Killer handling
@@ -64,20 +69,8 @@ if (isServer) then {
         air_weight = 0 max (air_weight min 100);
     };
 
-    // Player was incapacitated or killed
+    // Player was killed
     if (isPlayer _unit) then {
-
-        // ** Pre-death **
-        private _time = diag_tickTime -3;
-        if (lifeState _unit == "INCAPACITATED") then {
-            if ((bis_revive_bleedOutDuration - (diag_tickTime - _time))<0) exitWith { [11, [(name _unit)]] remoteExec ["KPLIB_fnc_crGlobalMsg"] }; 
-            [10, [(name _unit)]] remoteExec ["KPLIB_fnc_crGlobalMsg"]; 
-        };
-
-        // -----------------
-        // -----------------
-
-        // ** Post-death **
         stats_player_deaths = stats_player_deaths + 1;
         _unit connectTerminalToUAV objNull;
         if (vehicle _unit != _unit) then {moveOut _unit;};
@@ -87,8 +80,8 @@ if (isServer) then {
 
         // Player has a direct killer. Determine if it is AI or another player
         private _killerType = "";
-        if (isPlayer _killer) then { _killerType = "Friendly-Fire"; } else { _killerType = "AI"; }; 
-        [6, [(name _unit), (name _killer), (_killerType)]] remoteExec ["KPLIB_fnc_crGlobalMsg"];
+        if (!isNull _player) then { _killerType = "Friendly-Fire"; } else { _killerType = "AI"; }; 
+        [6, [(name _unit), (name _player), (_killerType)]] remoteExec ["KPLIB_fnc_crGlobalMsg"];
     };
 
     // Check for Man or Vehicle
@@ -102,7 +95,7 @@ if (isServer) then {
             };
 
             // Killed by a player
-            if (isplayer _killer) then {
+            if (isPlayer _killer) then {
                 stats_opfor_killed_by_players = stats_opfor_killed_by_players + 1;
 
                  if((round _distance) >= 800 && (vehicle _killer == _killer) && (vehicle _unit == _unit)) then {
@@ -133,14 +126,14 @@ if (isServer) then {
                 // Killed by BLUFOR
                 if (side _killer == GRLIB_side_friendly) then {
                     if (KP_liberation_asymmetric_debug > 0) then {[format ["Guerilla unit killed by: %1", name _killer], "ASYMMETRIC"] call KPLIB_fnc_log;};
-                    [3, [(name _unit), (name _killer)]] remoteExec ["KPLIB_fnc_crGlobalMsg"];
                     stats_resistance_teamkills = stats_resistance_teamkills + 1;
                     [KP_liberation_cr_resistance_penalty, true] spawn F_cr_changeCR;
                 };
 
                 // Killed by a player
-                if (isplayer _killer) then {
+                if (!isNull _player) then {
                     stats_resistance_teamkills_by_players = stats_resistance_teamkills_by_players + 1;
+                    [3, [(name _unit), (name _player)]] remoteExec ["KPLIB_fnc_crGlobalMsg"];
                 };
             };
         };
@@ -152,13 +145,13 @@ if (isServer) then {
             // Killed by BLUFOR
             if (side _killer == GRLIB_side_friendly) then {
                 if (KP_liberation_civrep_debug > 0) then {[format ["Civilian killed by: %1", name _killer], "CIVREP"] call KPLIB_fnc_log;};
-                [2, [(name _unit), (name _killer)]] remoteExec ["KPLIB_fnc_crGlobalMsg"];
                 [KP_liberation_cr_kill_penalty, true] spawn F_cr_changeCR;
             };
 
             // Killed by a player
-            if (isPlayer _killer) then {
+            if (!isNull _player) then {
                 stats_civilians_killed_by_players = stats_civilians_killed_by_players + 1;
+                [2, [(name _unit), (name _player)]] remoteExec ["KPLIB_fnc_crGlobalMsg"];
             };
         };
     } else {
@@ -169,9 +162,9 @@ if (isServer) then {
             stats_opfor_vehicles_killed = stats_opfor_vehicles_killed + 1;
 
             // Destroyed by player
-            if (isplayer _killer) then {
-                [7, [(_vehicleName), (name _killer), (round _distance), (_killerWeapon)]] remoteExec ["KPLIB_fnc_crGlobalMsg"];
+            if (!isNull _player) then {
                 stats_opfor_vehicles_killed_by_players = stats_opfor_vehicles_killed_by_players + 1;
+                [7, [(_vehicleName), (name _player), (round _distance), (_killerWeapon)]] remoteExec ["KPLIB_fnc_crGlobalMsg"];
             };
         } else {
             // Civilian vehicle casualty
@@ -179,8 +172,8 @@ if (isServer) then {
                 stats_civilian_vehicles_killed = stats_civilian_vehicles_killed + 1;
 
                 // Destroyed by player
-                if (isplayer _killer) then {
-                    [8, [(_vehicleName), (name _killer)]] remoteExec ["KPLIB_fnc_crGlobalMsg"];
+                if (!isNull _player) then {
+                    [8, [(_vehicleName), (name _player)]] remoteExec ["KPLIB_fnc_crGlobalMsg"];
                     stats_civilian_vehicles_killed_by_players = stats_civilian_vehicles_killed_by_players + 1;
                 };
             } else {
