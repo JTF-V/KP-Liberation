@@ -78,6 +78,14 @@ player addEventHandler ["GetInMan", {[_this select 2] call kp_vehicle_permission
 player addEventHandler ["SeatSwitchedMan", {[_this select 2] call kp_vehicle_permissions;}];
 player addEventHandler ["HandleRating", {if ((_this select 1) < 0) then {0};}];
 
+// Incapacitation
+player addEventHandler ["AnimStateChanged", { 
+    params ["_unit", "_anim"];
+	if ((_anim == "unconsciousrevivedefault") && (lifestate _unit == 'INCAPACITATED')) then {
+        _this spawn incapacitation_manager;
+	};
+}];
+
 // Disable stamina, if selected in parameter
 if (!GRLIB_fatigue) then {
     player enableStamina false;
