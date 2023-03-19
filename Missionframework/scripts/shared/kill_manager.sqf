@@ -152,6 +152,8 @@ if (isServer) then {
             if (!isNull _player) then {
                 stats_civilians_killed_by_players = stats_civilians_killed_by_players + 1;
                 [2, [(name _unit), (name _player)]] remoteExec ["KPLIB_fnc_crGlobalMsg"];
+                // Log civilian deaths due to player action to .rpt until db implemented
+                diag_log format["JTF-V Civilian kill log: -- %1 killed a civilian --", (name _player)];
             };
         };
     } else {
