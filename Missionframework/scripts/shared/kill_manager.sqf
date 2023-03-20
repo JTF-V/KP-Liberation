@@ -32,7 +32,8 @@ if (isServer) then {
     
     // Distance & Weapon used
     private _distance = _killer distance2D _unit;
-    private _killerWeapon = getText(configFile >> "CfgWeapons" >> currentWeapon (vehicle _killer) >> "displayname");
+    private _killerCurrentWeapon = currentWeapon _player;
+    private _killerWeapon = getText(configFile >> "CfgWeapons" >> _killerCurrentWeapon >> "displayname");
 
     // BLUFOR Killer handling
     if ((side _killer) == GRLIB_side_friendly) then {
@@ -73,7 +74,7 @@ if (isServer) then {
     if (isPlayer _unit) then {
         stats_player_deaths = stats_player_deaths + 1;
         _unit connectTerminalToUAV objNull;
-        if (vehicle _unit != _unit) then {moveOut _unit;};
+        if (!isNull objectParent _unit) then {moveOut _unit;};
 
         // Player died to fall damage, mines, exiting a moving vehicle, etc. No direct killer
         if (isNull _killer || _killer == _unit) exitWith { [9, [(name _unit)]] remoteExec ["KPLIB_fnc_crGlobalMsg"]; }; // Player has died!
@@ -95,12 +96,12 @@ if (isServer) then {
             };
 
             // Killed by a player
-            if (isPlayer _killer) then {
+            if (!isNull _player) then {
                 stats_opfor_killed_by_players = stats_opfor_killed_by_players + 1;
 
-                 if((round _distance) >= 800 && (vehicle _killer == _killer) && (vehicle _unit == _unit)) then {
+                 if((round _distance) >= 800 && (isNull objectParent _player) && (isNull objectParent _unit) && (_killerCurrentWeapon != (secondaryWeapon _killer))) then {
                      // Player killed an enemy over 800m away
-                     [12, [(name _killer), (name _unit), (round _distance)]] remoteExec ["KPLIB_fnc_crGlobalMsg"];
+                     [12, [(name _player), (name _unit), (round _distance)]] remoteExec ["KPLIB_fnc_crGlobalMsg"]; //
                  }
             };
         };
