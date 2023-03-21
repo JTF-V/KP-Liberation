@@ -31,3 +31,4 @@ while {lifeState _unit == "incapacitated"} do {
 	hintSilent _hint;
 };
 uisleep 1;
+hintSilent "";
