@@ -1,8 +1,27 @@
+/*
+    Incapacitation Manager
+
+    Author: Highlander - https://github.com/JTF-V/KP-Liberation
+    Date: 23/03/2023 (dd/mm/yyyy)
+    Last Update: 23/03/2023 (dd/mm/yyyy)
+*/
+
 params ["_unit", "_anim"];
 
-// if (isServer) exitWith {};
+if (isDedicated) exitWith {};
 
 [10, [(name _unit)]] remoteExec ["KPLIB_fnc_crGlobalMsg"];
+
+// Disables voice and chat for: Global, Side, Command, Group
+for "_i" from 0 to 3 do { _i enableChannel false };
+
+// All but the last line use the 'local' version, this is to reduce the number of messages sent over the network to each client
+// See: https://community.bistudio.com/wiki/createMarker#:~:text=Multiplayer%20optimisation
+_incapacitatedMarkerName = format ["_USER_DEFINED#%1", getPlayerUid _unit]; 
+_incapacitatedMarker = createMarkerLocal [_incapacitatedMarkerName, getPos _unit];  
+_incapacitatedMarker setMarkerColorLocal "ColorRed";  
+_incapacitatedMarker setMarkerTypeLocal "loc_heal"; 
+_incapacitatedMarker setMarkerText format["%1 (Incapacitated)", (name _unit)];
 
 private _time = diag_tickTime -3;
 while {lifeState _unit == "incapacitated"} do {
@@ -31,4 +50,8 @@ while {lifeState _unit == "incapacitated"} do {
 	hintSilent _hint;
 };
 uisleep 1;
+
+// Enables voice and chat for: Global, Side, Command, Group
+for "_i" from 0 to 3 do { _i enableChannel true };
 hintSilent "";
+deleteMarker _incapacitatedMarkerName;

@@ -1,4 +1,17 @@
 /*
+    Kill Manager
+
+    Author: Wyqer (KP Liberation) - https://github.com/KillahPotatoes/KP-Liberation/commits?author=Wyqer
+    Date: 05/08/2020 (dd/mm/yyyy)
+
+    Modified by: Highlander - https://github.com/JTF-V/KP-Liberation
+    Last Update: 23/03/2023 (dd/mm/yyyy)
+
+    This script has been modified by JTF-V to include killfeed messages and fix an issue where UAV/UGV kills do not increase scores
+    See here: https://github.com/KillahPotatoes/KP-Liberation/issues/933
+
+    -----------------------------------------------------------------------------------------------------------------------------
+
     Killfeed messages display on following events: ✅
         1. Player dies (fall damage, etc) -- ✅
         2. Player is killed (FF or AI) -- ✅

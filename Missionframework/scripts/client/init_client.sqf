@@ -79,7 +79,7 @@ player addEventHandler ["SeatSwitchedMan", {[_this select 2] call kp_vehicle_per
 player addEventHandler ["HandleRating", {if ((_this select 1) < 0) then {0};}];
 
 // Incapacitation
-player addEventHandler ["AnimChanged", { 
+player addEventHandler ["AnimStateChanged", { 
     params ["_unit", "_anim"];
 	if ((_anim == "unconsciousrevivedefault") && (lifestate _unit == 'INCAPACITATED')) then {
         _this spawn incapacitation_manager;
