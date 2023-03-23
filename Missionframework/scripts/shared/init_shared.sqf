@@ -1,4 +1,5 @@
 kill_manager = compileFinal preprocessFileLineNumbers "scripts\shared\kill_manager.sqf";
+incapacitation_manager = compileFinal preprocessFileLineNumbers "scripts\shared\incapacitation_manager.sqf";
 
 build_remote_call = compileFinal preprocessFileLineNumbers "scripts\server\remotecall\build_remote_call.sqf";
 build_fob_remote_call = compileFinal preprocessFileLineNumbers "scripts\server\remotecall\build_fob_remote_call.sqf";

@@ -7,6 +7,7 @@ dorecycle = 0;
 
 private _type = typeOf _vehToRecycle;
 private _cfg = configFile >> "cfgVehicles";
+private _vehDisplayName = getText (_cfg >> _type >> "displayName");
 private _suppMulti = 0.5;
 private _ammoMulti = 0.5;
 private _fuelMulti = 0.5;
@@ -98,6 +99,6 @@ if (dorecycle == 1 && !(isnull _vehToRecycle) && alive _vehToRecycle) then {
     if (_spaceSum < _crateSum) then {
         hint localize "STR_CANCEL_ERROR";
     } else {
-        [_vehToRecycle, _price_s, _price_a, _price_f, _storage_areas] remoteExec ["recycle_remote_call",2];
+        [_vehToRecycle, _price_s, _price_a, _price_f, _storage_areas, _this  select 1, _vehDisplayName] remoteExec ["recycle_remote_call",2];
     };
 };

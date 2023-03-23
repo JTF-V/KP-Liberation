@@ -26,6 +26,7 @@ if (KPPLM_CBA && KP_liberation_playermenu) then {
 
 if (isServer) then {
     [] call compileFinal preprocessFileLineNumbers "scripts\server\init_server.sqf";
+    [] execVM "outlw_magrepack\MagRepack_init.sqf";
 };
 
 if (!isDedicated && !hasInterface && isMultiplayer) then {
