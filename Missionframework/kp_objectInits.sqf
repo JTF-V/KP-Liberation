@@ -33,13 +33,13 @@ KPLIB_objectInits = [
     // Set JTF-V logo on Vrana flag
     [
         ["Flag_Vrana_F"],
-        {_this setFlagTexture "res\flag_jtf_v_co.paa";}
+        {_this setFlagTexture "res\flag_jtf_v.paa";}
     ],
 
     // Set JTF-V logo on billboard
     [
         ["Land_Billboard_F"],
-        {_this setObjectTexture "res\billboard_jtf_v.jpg";}
+        {_this setObjectTextureGlobal [0, "res\billboard_jtf_v.jpg"];}
     ],
 
     // Add helipads to zeus, as they can't be recycled after built

@@ -3797,6 +3797,12 @@
             <Korean>Killah Potatoes 깃발</Korean>
             <Czech>Killah Potatoes vlajka</Czech>
         </Key>
+        <Key ID="STR_JTFV_FLAG">
+            <Original>JTF-V Flag</Original>
+        </Key>
+        <Key ID="STR_JTFV_BILLBOARD">
+            <Original>JTF-V Billboard</Original>
+        </Key>
         <Key ID="STR_SMALL_STORAGE">
             <Original>Small storage area</Original>
             <German>Kleiner Lagerbereich</German>
