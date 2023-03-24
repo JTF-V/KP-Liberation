@@ -107,7 +107,8 @@ light_vehicles = [
     ["BWA3_Eagle_FLW100_Fleck",100,100,50],                             // Eagle IV (FLW 100)
     ["rhsusf_M1230a1_usarmy_wd",120,0,60],                              // M1230A1 (MEDEVAC)
     ["B_Truck_01_transport_F",125,0,75],                                // HEMTT Transport
-    ["B_Truck_01_covered_F",125,0,75],                                  // HEMTT Transport (Covered)
+    ["B_Truck_01_covered_F",125,0,75],                                  // M1230A1 (MEDEVAC)
+    ["B_Truck_01_flatbed_F",125,0,75],                                  // HEMTT Flatbed
     ["rhsusf_M1083A1P2_wd_open_fmtv_usarmy",125,0,75],                  // M1083A1P2 Transport
     ["rhsusf_M1083A1P2_wd_fmtv_usarmy",125,0,75],                       // M1083A1P2 Transport (Covered)
     ["rhsusf_M1083A1P2_WD_flatbed_fmtv_usarmy",100,0,50],               // M1083A1P2
@@ -232,7 +233,9 @@ buildings = [
     ["Flag_US_F",0,0,0],
     ["BWA3_Flag_Ger_F",0,0,0],
     ["Flag_UK_F",0,0,0],
+    ["Flag_Vrana_F",0,0,0],
     ["Flag_White_F",0,0,0],
+    ["Land_Billboard_F",0,0,0],
     ["Land_Medevac_house_V1_F",0,0,0],
     ["Land_Medevac_HQ_V1_F",0,0,0],
     ["Flag_RedCrystal_F",0,0,0],
