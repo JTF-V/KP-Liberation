@@ -19,6 +19,37 @@ private _interruptionKeys = [17, 30, 31, 32]; //A,S,W,D
 
 if (_code in _interruptionKeys) exitWith {};
 
+private _allowedMoves = [
+        "MoveForward",
+        "MoveBack",
+        "TurnLeft",
+        "TurnRight",
+        "MoveFastForward",
+        "MoveSlowForward",
+        "turbo",
+        "TurboToggle",
+        "MoveLeft",
+        "MoveRight",
+        "WalkRunTemp",
+        "WalkRunToggle",
+        "AdjustUp",
+        "AdjustDown",
+        "AdjustLeft",
+        "AdjustRight",
+        "Stand",
+        "Crouch",
+        "Prone",
+        "MoveUp",
+        "MoveDown",
+        "LeanLeft",
+        "LeanLeftToggle",
+        "LeanRight",
+        "LeanRightToggle"
+    ];
+    if (({_code in (actionKeys _x)} count _allowedMoves) > 0) exitwith {
+        false;
+    };
+
 switch (_code) do {
 	// Keycodes found here: https// community.bistudio.com/wiki/DIK_KeyCodes
 
@@ -66,6 +97,7 @@ switch (_code) do {
 				systemChat format [localize "STR_MISC_earplugsInHalf", (round jtf_desired_earplug_volume * 2)];
 			};
 	    };
+		_handled = true;
 	};
 };
 
