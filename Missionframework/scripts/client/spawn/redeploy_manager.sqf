@@ -93,7 +93,7 @@ while {true} do {
 
         {
             KPLIB_respawnPositionsList pushBack [
-                format ["FOB %1 - %2", (military_alphabet select _forEachIndex), mapGridPosition _x],
+                format ["%1 - %2", (_forEachIndex call formatted_military_alphabet), mapGridPosition _x],
                 _x
             ];
         } forEach GRLIB_all_fobs;

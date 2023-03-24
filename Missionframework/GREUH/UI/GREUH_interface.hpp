@@ -173,8 +173,8 @@ class GREUH_Menu {
 	"GREUH_ButtonName_Rename","GREUH_ButtonName_Abort","GREUH_Squad_TextField","GREUH_LabelVD","GREUH_ButtonLeader",
 	"GREUH_SliderVeh","GREUH_LabelVDVeh","GREUH_SliderVDVeh","GREUH_SliderObj","GREUH_LabelVDObj","GREUH_SliderVDObj",
 	"GREUH_Leader_OuterBG", "GREUH_Leader_InnerBG", "GREUH_Leader_OuterBG_F", "GREUH_Leader_InnerBG_F",
-	"GREUH_ButtonLeader_Choose", "GREUH_ButtonLeader_Abort", "GREUH_Squad_Combo", "GREUH_VehSound", "GREUH_SliderVehSound",
-	"GREUH_LabelVehSound","GREUH_LabelNametags","GREUH_NametagsActive","GREUH_NametagsYes","GREUH_NametagsNo",
+	"GREUH_ButtonLeader_Choose", "GREUH_ButtonLeader_Abort", "GREUH_Squad_Combo", "JTF_EarplugVolume", "JTF_SliderEarplugVolume",
+	"JTF_LabelEarplugVolume","GREUH_LabelNametags","GREUH_NametagsActive","GREUH_NametagsYes","GREUH_NametagsNo",
 	"GREUH_FPSLabel","GREUH_FPSEdit"};
 	objects[] = {};
 
@@ -729,12 +729,12 @@ class GREUH_Menu {
 		action = "show_teammates = false";
 	};
 
-	class GREUH_VehSound : GREUH_Label {
+	class JTF_EarplugVolume : GREUH_Label {
 		idc = 1101;
 		y = ((BASE_Y + 0.74) * safezoneH) + safezoneY;
-		text = $STR_GREUH_INVEHICLE_SOUND_VOLUME;
+		text = $STR_JTF_V_EARPLUG_SOUND_VOLUME;
 	};
-	class GREUH_SliderVehSound {
+	class JTF_SliderEarplugVolume {
 		idc = 1102;
 		type = CT_SLIDER;
 		style = SL_HORZ;
@@ -742,12 +742,12 @@ class GREUH_Menu {
 		w = 0.16 * safezoneW;
 		y = ((BASE_Y + 0.785) * safezoneH) + safezoneY;
 		h = 0.025 * safezoneH;
-		text = $STR_GREUH_VIEW_DISTANCE;
+		text = $STR_JTF_V_EARPLUG_SOUND_VOLUME;
 		color[] = { 1, 1, 1, 1 };
 		coloractive[] = { 1, 1, 1, 1 };
-		onSliderPosChanged = "desired_vehvolume = (sliderPosition 1102)";
+		onSliderPosChanged = "jtf_desired_earplug_volume = (sliderPosition 1102)";
 	};
-	class GREUH_LabelVehSound : GREUH_Label {
+	class JTF_LabelEarplugVolume : GREUH_Label {
 		idc = 1103;
 		style = ST_LEFT;
 		x = 0.31 * safezoneW + safezoneX;

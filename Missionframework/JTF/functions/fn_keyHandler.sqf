@@ -19,6 +19,37 @@ private _interruptionKeys = [17, 30, 31, 32]; //A,S,W,D
 
 if (_code in _interruptionKeys) exitWith {};
 
+private _allowedMoves = [
+        "MoveForward",
+        "MoveBack",
+        "TurnLeft",
+        "TurnRight",
+        "MoveFastForward",
+        "MoveSlowForward",
+        "turbo",
+        "TurboToggle",
+        "MoveLeft",
+        "MoveRight",
+        "WalkRunTemp",
+        "WalkRunToggle",
+        "AdjustUp",
+        "AdjustDown",
+        "AdjustLeft",
+        "AdjustRight",
+        "Stand",
+        "Crouch",
+        "Prone",
+        "MoveUp",
+        "MoveDown",
+        "LeanLeft",
+        "LeanLeftToggle",
+        "LeanRight",
+        "LeanRightToggle"
+    ];
+    if (({_code in (actionKeys _x)} count _allowedMoves) > 0) exitwith {
+        false;
+    };
+
 switch (_code) do {
 	// Keycodes found here: https// community.bistudio.com/wiki/DIK_KeyCodes
 
@@ -45,20 +76,28 @@ switch (_code) do {
 	// End Key
 	case 207: {
 		// Out
-	    if (player getVariable ['JTF_state_earplugs',FALSE]) then {
-		    player setVariable ['JTF_state_earplugs',FALSE,FALSE];
-		    1 fadeSound (player getVariable 'JTF_state_earplugs_out_volume');
-            systemChat localize "STR_MISC_earplugsOut";
+	    if (player getVariable ['JTF_state_earplugs_full',FALSE]) then {
+		    player setVariable ['JTF_state_earplugs_full',FALSE,FALSE];
+		    1 fadeSound 1;
+			systemChat format [localize "STR_MISC_earplugsOut", 100];
 	    }
 		// In
         else {
-		    player setVariable ['JTF_state_earplugs_out_volume',soundVolume,FALSE];
-		    player setVariable ['JTF_state_earplugs',TRUE,FALSE];
-			earplugInVolume = 0.1;
-			player setVariable ['JTF_state_earplugs_in_volume',earplugInVolume,FALSE];
-		    1 fadeSound earplugInVolume;
-            systemChat localize "STR_MISC_earplugsIn";
+			// Check if already half. If so, set full. Otherwise, set half
+			if(player getVariable ['JTF_state_earplugs_half',FALSE]) then {
+				player setVariable ['JTF_state_earplugs_half',FALSE,FALSE];
+				player setVariable ['JTF_state_earplugs_full',TRUE,FALSE];
+
+				1 fadeSound round jtf_desired_earplug_volume / 100;
+            	systemChat format [localize "STR_MISC_earplugsIn", (round jtf_desired_earplug_volume)];
+			}
+			else {
+				player setVariable ['JTF_state_earplugs_half',TRUE,FALSE];
+		    	1 fadeSound round jtf_desired_earplug_volume / 50;
+				systemChat format [localize "STR_MISC_earplugsInHalf", (round jtf_desired_earplug_volume * 2)];
+			};
 	    };
+		_handled = true;
 	};
 };
 
