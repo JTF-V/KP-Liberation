@@ -48,7 +48,7 @@ switch (_code) do {
 	    if (player getVariable ['JTF_state_earplugs_full',FALSE]) then {
 		    player setVariable ['JTF_state_earplugs_full',FALSE,FALSE];
 		    1 fadeSound 1;
-            systemChat localize "STR_MISC_earplugsOut";
+			systemChat format [localize "STR_MISC_earplugsOut", 100];
 	    }
 		// In
         else {
@@ -57,15 +57,13 @@ switch (_code) do {
 				player setVariable ['JTF_state_earplugs_half',FALSE,FALSE];
 				player setVariable ['JTF_state_earplugs_full',TRUE,FALSE];
 
-				private _volume = round jtf_desired_earplug_volume / 100;
-				1 fadeSound _volume;
-            	systemChat [localize "STR_MISC_earplugsIn", _volume];
+				1 fadeSound round jtf_desired_earplug_volume / 100;
+            	systemChat format [localize "STR_MISC_earplugsIn", (round jtf_desired_earplug_volume)];
 			}
 			else {
 				player setVariable ['JTF_state_earplugs_half',TRUE,FALSE];
-				private _volume = round jtf_desired_earplug_volume / 50;
-		    	1 fadeSound _volume;
-				systemChat [localize "STR_MISC_earplugsInHalf", _volume];
+		    	1 fadeSound round jtf_desired_earplug_volume / 50;
+				systemChat format [localize "STR_MISC_earplugsInHalf", (round jtf_desired_earplug_volume * 2)];
 			};
 	    };
 	};
