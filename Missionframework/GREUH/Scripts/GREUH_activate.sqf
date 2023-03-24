@@ -9,7 +9,7 @@ desired_fps = 0;
 show_teammates = false;
 show_nametags = false;
 show_platoon = false;
-desired_vehvolume = 100;
+jtf_desired_earplug_volume = 10;
 
 greuh_options_profile = profileNamespace getVariable "GREUH_OPTIONS_PROFILE";
 if ( !isNil "greuh_options_profile" ) then {
@@ -19,9 +19,9 @@ if ( !isNil "greuh_options_profile" ) then {
 	show_teammates = greuh_options_profile select 3;
 	show_platoon = greuh_options_profile select 4;
 	if ( count greuh_options_profile > 5 ) then {
-		desired_vehvolume = greuh_options_profile select 5;
-		if ( isNil "desired_vehvolume" ) then {
-			desired_vehvolume = 100;
+		jtf_desired_earplug_volume = greuh_options_profile select 5;
+		if ( isNil "jtf_desired_earplug_volume" ) then {
+			jtf_desired_earplug_volume = 10;
 		};
 	};
 	if ( count greuh_options_profile > 6 ) then {

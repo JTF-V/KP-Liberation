@@ -60,7 +60,7 @@ if ( GREUH_allow_mapmarkers ) then {
 if ( true ) then {
 	sliderSetSpeed [ 1102, 5, 5];
 	sliderSetRange [ 1102, 0, 100];
-	sliderSetPosition [ 1102, desired_vehvolume ];
+	sliderSetPosition [ 1102, jtf_desired_earplug_volume ];
 };
 
 while { dialog && alive player } do {
@@ -101,7 +101,7 @@ while { dialog && alive player } do {
 		ctrlSetText [733, format [ '%1m' ,round ((desiredviewdistance_obj / 100.0) * desiredviewdistance_inf) ]];
 	};
 
-	ctrlSetText [ 1103, format [ "%1%2", round (desired_vehvolume), "%" ] ];
+	ctrlSetText [ 1103, format [ "%1%2", round (jtf_desired_earplug_volume), "%" ] ];
 
 	desired_fps = parseNumber (ctrlText 960);
 
@@ -110,6 +110,6 @@ while { dialog && alive player } do {
 
 if (!alive player) then { closeDialog 0 };
 
-greuh_options_profile = [ desiredviewdistance_inf, desiredviewdistance_veh, desiredviewdistance_obj, show_teammates, show_platoon, desired_vehvolume, show_nametags, desired_fps ];
+greuh_options_profile = [ desiredviewdistance_inf, desiredviewdistance_veh, desiredviewdistance_obj, show_teammates, show_platoon, jtf_desired_earplug_volume, show_nametags, desired_fps ];
 profileNamespace setVariable [ "GREUH_OPTIONS_PROFILE",greuh_options_profile ];
 saveProfileNamespace;

@@ -45,19 +45,28 @@ switch (_code) do {
 	// End Key
 	case 207: {
 		// Out
-	    if (player getVariable ['JTF_state_earplugs',FALSE]) then {
-		    player setVariable ['JTF_state_earplugs',FALSE,FALSE];
-		    1 fadeSound (player getVariable 'JTF_state_earplugs_out_volume');
+	    if (player getVariable ['JTF_state_earplugs_full',FALSE]) then {
+		    player setVariable ['JTF_state_earplugs_full',FALSE,FALSE];
+		    1 fadeSound 1;
             systemChat localize "STR_MISC_earplugsOut";
 	    }
 		// In
         else {
-		    player setVariable ['JTF_state_earplugs_out_volume',soundVolume,FALSE];
-		    player setVariable ['JTF_state_earplugs',TRUE,FALSE];
-			earplugInVolume = 0.1;
-			player setVariable ['JTF_state_earplugs_in_volume',earplugInVolume,FALSE];
-		    1 fadeSound earplugInVolume;
-            systemChat localize "STR_MISC_earplugsIn";
+			// Check if already half. If so, set full. Otherwise, set half
+			if(player getVariable ['JTF_state_earplugs_half',FALSE]) then {
+				player setVariable ['JTF_state_earplugs_half',FALSE,FALSE];
+				player setVariable ['JTF_state_earplugs_full',TRUE,FALSE];
+
+				private _volume = round jtf_desired_earplug_volume / 100;
+				1 fadeSound _volume;
+            	systemChat [localize "STR_MISC_earplugsIn", _volume];
+			}
+			else {
+				player setVariable ['JTF_state_earplugs_half',TRUE,FALSE];
+				private _volume = round jtf_desired_earplug_volume / 50;
+		    	1 fadeSound _volume;
+				systemChat [localize "STR_MISC_earplugsInHalf", _volume];
+			};
 	    };
 	};
 };
