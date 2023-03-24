@@ -5556,6 +5556,9 @@
             <Korean>차량 탑승시 소리크기 설정</Korean>
             <Czech>Hlasitost ve vozidle</Czech>
         </Key>
+        <Key ID="STR_JTF_V_EARPLUG_SOUND_VOLUME">
+            <Original>Earplugs Volume</Original>
+        </Key>
         <Key ID="STR_GREUH_TEST">
             <Original>Test</Original>
             <German>Test</German>
@@ -7448,8 +7451,18 @@
             <Spanish>Menú de Jugador KP v1.0.2\npor Wyqer</Spanish>
             <Czech>KP Player Menu v1.0.2\nby Wyqer</Czech>
         </Key>
+        <Key ID="STR_MISC_earplugsInHalf">
+            <Original>Earplugs half inserted. Volume reduced to %1 percent</Original>
+            <Czech>Špunty do uší!</Czech>
+            <French>Bouchons d'oreille dedans!</French>
+            <Spanish>Tapones para los oídos!</Spanish>
+            <Italian>Tappi per le orecchie dentro!</Italian>
+            <German>Ohrstöpsel rein!</German>
+            <Portuguese>Tampões de ouvido!</Portuguese>
+            <Polish>Zatyczki do uszu!</Polish>
+        </Key>
         <Key ID="STR_MISC_earplugsIn">
-            <Original>Earplugs in!</Original>
+            <Original>Earplugs fully inserted. Volume reduced to %1 percent</Original>
             <Czech>Špunty do uší!</Czech>
             <French>Bouchons d'oreille dedans!</French>
             <Spanish>Tapones para los oídos!</Spanish>
@@ -7459,7 +7472,7 @@
             <Polish>Zatyczki do uszu!</Polish>
         </Key>
         <Key ID="STR_MISC_earplugsOut">
-            <Original>Earplugs out!</Original>
+            <Original>Earplugs removed. Volume increased to %1 percent</Original>
             <Czech>Špunty do uší ven!</Czech>
             <French>Dehors les bouchons d'oreilles!</French>
             <Spanish>¡Fuera los tapones para los oídos!</Spanish>
