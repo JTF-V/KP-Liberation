@@ -313,7 +313,7 @@ KPLIB_typeAirClasses   = +KPLIB_b_air_classes;
 } forEach (KPLIB_b_support_classes + [toLower huron_typename]);
 
 // Military alphabet used for FOBs and convois
-military_alphabet = ["Alpha", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf", "Hotel", "India", "Juliet", "Kilo", "Lima", "Mike", "November", "Oscar", "Papa", "Quebec", "Romeo", "Sierra", "Tango", "Uniform", "Victor", "Whiskey", "X-Ray", "Yankee", "Zulu"];
+military_alphabet = ["Main Base", "Alpha", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf", "Hotel", "India", "Juliet", "Kilo", "Lima", "Mike", "November", "Oscar", "Papa", "Quebec", "Romeo", "Sierra", "Tango", "Uniform", "Victor", "Whiskey", "X-Ray", "Yankee", "Zulu"];
 
 // Misc variables
 markers_reset = [99999,99999,0];
