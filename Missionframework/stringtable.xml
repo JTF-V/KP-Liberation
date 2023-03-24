@@ -5556,6 +5556,9 @@
             <Korean>차량 탑승시 소리크기 설정</Korean>
             <Czech>Hlasitost ve vozidle</Czech>
         </Key>
+        <Key ID="STR_JTF_V_EARPLUG_SOUND_VOLUME">
+            <Original>Earplugs Volume</Original>
+        </Key>
         <Key ID="STR_GREUH_TEST">
             <Original>Test</Original>
             <German>Test</German>
@@ -5714,6 +5717,19 @@
         </Key>
         <Key ID="STR_CR_REVIVEDMSG">
             <Original>%1 was revived!</Original>
+            <!-- <German>Ein Zivilist mit Namen %1 wurde getötet!</German>
+            <Spanish>Un civil llamado %1 fue asesinado!</Spanish>
+            <Russian>Гражданский %1 был убит!</Russian>
+            <Italian>Un civile di nome %1 è stato ucciso!</Italian>
+            <Chinesesimp>一个名叫%1的平民被击杀了！</Chinesesimp>
+            <Chinese>一個名叫 %1 的平民被擊殺了！</Chinese>
+            <Turkish>%1 ismindeki sivil öldürüldü!</Turkish>
+            <Portuguese>Um civil de nome %1 foi morto!</Portuguese>
+            <Korean>민간인 %가 사망하였다!</Korean>
+            <Czech>Civilista jménem %1 byl zabit jednotkami BLUFOR!</Czech> -->
+        </Key>
+        <Key ID="STR_CR_RECYCLEDMSG">
+            <Original>A %1 was recycled by %2</Original>
             <!-- <German>Ein Zivilist mit Namen %1 wurde getötet!</German>
             <Spanish>Un civil llamado %1 fue asesinado!</Spanish>
             <Russian>Гражданский %1 был убит!</Russian>
@@ -7435,8 +7451,18 @@
             <Spanish>Menú de Jugador KP v1.0.2\npor Wyqer</Spanish>
             <Czech>KP Player Menu v1.0.2\nby Wyqer</Czech>
         </Key>
+        <Key ID="STR_MISC_earplugsInHalf">
+            <Original>Earplugs half inserted. Volume reduced to %1 percent</Original>
+            <Czech>Špunty do uší!</Czech>
+            <French>Bouchons d'oreille dedans!</French>
+            <Spanish>Tapones para los oídos!</Spanish>
+            <Italian>Tappi per le orecchie dentro!</Italian>
+            <German>Ohrstöpsel rein!</German>
+            <Portuguese>Tampões de ouvido!</Portuguese>
+            <Polish>Zatyczki do uszu!</Polish>
+        </Key>
         <Key ID="STR_MISC_earplugsIn">
-            <Original>Earplugs in!</Original>
+            <Original>Earplugs fully inserted. Volume reduced to %1 percent</Original>
             <Czech>Špunty do uší!</Czech>
             <French>Bouchons d'oreille dedans!</French>
             <Spanish>Tapones para los oídos!</Spanish>
@@ -7446,7 +7472,7 @@
             <Polish>Zatyczki do uszu!</Polish>
         </Key>
         <Key ID="STR_MISC_earplugsOut">
-            <Original>Earplugs out!</Original>
+            <Original>Earplugs removed. Volume increased to %1 percent</Original>
             <Czech>Špunty do uší ven!</Czech>
             <French>Dehors les bouchons d'oreilles!</French>
             <Spanish>¡Fuera los tapones para los oídos!</Spanish>

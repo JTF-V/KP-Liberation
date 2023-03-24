@@ -267,3 +267,4 @@ class CfgCommunicationMenu
 #include "scripts\GOM\dialogs\GOM_dialog_parents.hpp"
 #include "scripts\GOM\dialogs\GOM_dialog_controls.hpp"
 #include "Txu_Info\CfgControls.hpp" // Briefing clickable buttons
+#include "outlw_magrepack\config.hpp"

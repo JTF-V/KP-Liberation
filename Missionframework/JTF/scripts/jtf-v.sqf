@@ -15,24 +15,24 @@ missionNamespace setVariable ["WGP_UI_redraw", _whileopen];
 };
 }];
 
-// Bleedout Timer
-player addEventHandler ["animChanged", {
-  params ["_unit","_anim"];
-  if ("uncons" in toLowerAnsi _anim) then {
-    [_unit,_anim] spawn {
-      params ["_unit","_anim"];
-      private _time = diag_tickTime -3;
-      while {lifeState _unit == "incapacitated"} do {
-	      _color = "#45f442"; //green
-	      if (diag_tickTime >= (_time + 480)) then {_color = "#eef441";}; //yellow
-	      if (diag_tickTime >= (_time + 540)) then {_color = "#ff0000";}; //red
-	      if (diag_tickTime >= (_time + 600)) exitWith {
-		      hintSilent parseText format ["<t color='%1'>--- Time is up! ---</t>",_color];
-	      };
-	        hintSilent parseText format ["Time Left:<br/><t color='%1'>--- %2 ---</t>", _color, [(bis_revive_bleedOutDuration - (diag_tickTime - _time))/60,"HH:MM:SS"] call BIS_fnc_timetostring];
-      };
-        uisleep 1
-    };
-      hintSilent ""
-  }
-}];
+// Bleedout Timer -- Moved to incapacitation_manager.sqf
+// player addEventHandler ["animChanged", {
+//   params ["_unit","_anim"];
+//   if ("uncons" in toLowerAnsi _anim) then {
+//     [_unit,_anim] spawn {
+//       params ["_unit","_anim"];
+//       private _time = diag_tickTime -3;
+//       while {lifeState _unit == "incapacitated"} do {
+// 	      _color = "#45f442"; //green
+// 	      if (diag_tickTime >= (_time + 480)) then {_color = "#eef441";}; //yellow
+// 	      if (diag_tickTime >= (_time + 540)) then {_color = "#ff0000";}; //red
+// 	      if (diag_tickTime >= (_time + 600)) exitWith {
+// 		      hintSilent parseText format ["<t color='%1'>--- Time is up! ---</t>",_color];
+// 	      };
+// 	        hintSilent parseText format ["Time Left:<br/><t color='%1'>--- %2 ---</t>", _color, [(bis_revive_bleedOutDuration - (diag_tickTime - _time))/60,"HH:MM:SS"] call BIS_fnc_timetostring];
+//       };
+//         uisleep 1
+//     };
+//       hintSilent ""
+//   }
+// }];
