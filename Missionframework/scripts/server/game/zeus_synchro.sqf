@@ -10,7 +10,8 @@ private _vehicleClassnames = [toLower huron_typename];
     KPLIB_b_heavy_classes,
     KPLIB_b_air_classes,
     KPLIB_b_static_classes,
-    KPLIB_b_support_classes
+    KPLIB_b_support_classes,
+    JTFV_crates
 ];
 if (KP_liberation_enemies_zeus) then {_vehicleClassnames append KPLIB_o_allVeh_classes;};
 

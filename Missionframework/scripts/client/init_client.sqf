@@ -38,6 +38,7 @@ write_credit_line = compileFinal preprocessFileLineNumbers "scripts\client\ui\wr
 do_load_box = compileFinal preprocessFileLineNumbers "scripts\client\ammoboxes\do_load_box.sqf";
 kp_fuel_consumption = compileFinal preprocessFileLineNumbers "scripts\client\misc\kp_fuel_consumption.sqf";
 kp_vehicle_permissions = compileFinal preprocessFileLineNumbers "scripts\client\misc\vehicle_permissions.sqf";
+do_load_container = compileFinal preprocessFileLineNumbers "JTF\scripts\flatbed\do_load_container.sqf";
 
 execVM "scripts\client\actions\intel_manager.sqf";
 execVM "scripts\client\actions\recycle_manager.sqf";
@@ -68,6 +69,7 @@ execVM "scripts\client\markers\update_production_sites.sqf";
 
 // JTF-V Edit
 execVM "JTF\scripts\jtf-v.sqf";
+execVM "JTF\scripts\flatbed\flatbed_manager.sqf";
 execVM "briefing.sqf"; // Briefings
 
 player addMPEventHandler ["MPKilled", {_this spawn kill_manager;}];

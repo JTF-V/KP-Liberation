@@ -40,6 +40,10 @@ KP_liberation_plane_slot_building = "Land_TentHangar_V1_F";             // The h
 KP_liberation_supply_crate = "CargoNet_01_box_F";                       // This defines the supply crates, as in resources.
 KP_liberation_ammo_crate = "B_CargoNet_01_ammo_F";                      // This defines the ammunition crates.
 KP_liberation_fuel_crate = "CargoNet_01_barrels_F";                     // This defines the fuel crates.
+JTFV_ammo_container = "B_Slingload_01_Ammo_F";                                    // Ammo container for flatbed
+JTFV_fuel_container = "B_Slingload_01_Fuel_F";                                    // Fuel container for flatbed
+JTFV_repair_container = "B_Slingload_01_Repair_F";                                // Repair container for flatbed
+JTFV_medical_container = "B_Slingload_01_Medevac_F";                              // Medical container for flatbed
 
 /*
     --- Friendly classnames ---
