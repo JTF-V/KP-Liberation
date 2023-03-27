@@ -22,9 +22,10 @@ params [
 private _unit = _obj in allUnits;
 private _vehicle = _obj in vehicles;
 private _crate = (toLower (typeOf _obj)) in KPLIB_crates;
+private _jtfvcrate = (toLower (typeOf _obj)) in JTFV_crates;
 
 // Exit if building and no resource crate
-if !(_unit || _vehicle || _crate) exitWith {false};
+if !(_unit || _vehicle || _crate || _jtfvcrate) exitWith {false};
 
 // For a vehicle apply clear cargo
 if (_vehicle) then {
@@ -38,7 +39,7 @@ if (_vehicle) then {
 };
 
 // Apply kill manager, if it's not a crate
-if !(_crate) then {
+if !(_crate) && !(_jtfvcrate) then {
     _obj addMPEventHandler ["MPKilled", {_this spawn kill_manager}];
 } else {
     // Otherwise apply all needed values/functionalities

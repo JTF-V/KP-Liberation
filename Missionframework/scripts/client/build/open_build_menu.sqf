@@ -57,6 +57,8 @@ while {dialog && alive player && (dobuild == 0 || buildtype == 1)} do {
                     case Respawn_truck_typename: {if (KP_liberation_mobilerespawn) then {_entrytext = localize "STR_RESPAWN_TRUCK";};};
                     case FOB_truck_typename: {_entrytext = localize "STR_FOBTRUCK";};
                     case "Flag_White_F": {_entrytext = localize "STR_INDIV_FLAG";};
+                    case "Flag_Vrana_F": {_entrytext = localize "STR_JTFV_FLAG";};
+                    case "Land_Billboard_F": {_entrytext = localize "STR_JTFV_BILLBOARD";};
                     case KP_liberation_small_storage_building: {_entrytext = localize "STR_SMALL_STORAGE";};
                     case KP_liberation_large_storage_building: {_entrytext = localize "STR_LARGE_STORAGE";};
                     case KP_liberation_recycle_building: {_entrytext = localize "STR_RECYCLE_BUILDING";};

@@ -241,7 +241,7 @@ KP_liberation_civinfo_duration = 1200;                                  // Civil
 KP_liberation_civinfo_task_chance = 40;                                 // Chance (0-100) that the delivered informant will spawn a time critical task.
 KP_liberation_civinfo_task_duration = 900;                              // Duration until the task will despawn if no player is near. (seconds)
 
-KP_liberation_convoy_ambush_chance = 2;                                 // Chance that a logistic convoy will be ambushed, when civil reputation is low.
+KP_liberation_convoy_ambush_chance = 20;                                 // Chance that a logistic convoy will be ambushed, when civil reputation is low.
 KP_liberation_convoy_ambush_duration = 1200;                            // Duration of the convoy ambush event. (seconds)
 
 KP_liberation_resistance_tier2 = 30;                                    // At which strength (0-100) the guerilla forces will be at tier 2?
@@ -543,13 +543,11 @@ KPLIB_transportConfigs = [
     ["B_Heli_Transport_03_unarmed_F", -8, [0,2.2,-1], [0,0.5,-1], [0,-1.2,-1]],
     ["B_T_Truck_01_cargo_F", -6.5, [0,-0.4,0.4], [0,-2.1,0.4], [0,-3.8,0.4]],
     ["B_T_Truck_01_covered_F", -6.5, [0,-0.4,0.4], [0,-2.1,0.4], [0,-3.8,0.4]],
-    ["B_T_Truck_01_flatbed_F", -6.5, [0,-0.4,0.4], [0,-2.1,0.4], [0,-3.8,0.4]],
     ["B_T_Truck_01_transport_F", -6.5, [0,-0.4,0.4], [0,-2.1,0.4], [0,-3.8,0.4]],
     ["B_T_VTOL_01_infantry_F", -7.5,[0,4.7,-4.88],[0,3,-4.88],[0,1.3,-4.88],[0,-0.4,-4.88],[0,-2.1,-4.88]],
     ["B_T_VTOL_01_vehicle_F", -7.5,[0,4.7,-4.88],[0,3,-4.88],[0,1.3,-4.88],[0,-0.4,-4.88],[0,-2.1,-4.88]],
     ["B_Truck_01_cargo_F", -6.5, [0,-0.4,0.4], [0,-2.1,0.4], [0,-3.8,0.4]],
     ["B_Truck_01_covered_F", -6.5, [0,-0.4,0.4], [0,-2.1,0.4], [0,-3.8,0.4]],
-    ["B_Truck_01_flatbed_F", -6.5, [0,-0.4,0.4], [0,-2.1,0.4], [0,-3.8,0.4]],
     ["B_Truck_01_transport_F", -6.5, [0,-0.4,0.4], [0,-2.1,0.4], [0,-3.8,0.4]],
     ["BW_AW101_Trans_Heer_F", -6.5, [0,4.2,-1.45], [0,2.5,-1.45], [0,0.8,-1.45], [0,-0.9,-1.45]],
     ["BW_LKW7T_Trans_F", -6.5, [0,-0.8,0.4], [0,-2.4,0.4], [0,-4.0,0.4]],
@@ -708,6 +706,12 @@ KPLIB_transportConfigs = [
     ["uns_nvatruck_mg", -5, [0,-1.05,0.8], [0,-2.75,0.8]],
     ["uns_nvatruck_open", -5, [0,-1.05,0.8], [0,-2.75,0.8]],
     ["uns_nvatruck", -5, [0,-1.05,0.8], [0,-2.75,0.8]]
+];
+
+JTFV_transportConfigs = [
+
+    ["B_Truck_01_flatbed_F", -6.5, [0,-0.4,-0.1], [0,-2.1,-0.1], [0,-3.8,-0.1]],
+    ["B_T_Truck_01_flatbed_F", -6.5, [0,-0.4,0.4], [0,-2.1,0.4], [0,-3.8,0.4]]
 ];
 
 /* Various other settings.
@@ -1035,6 +1039,10 @@ KP_liberation_suppMod_artyVeh = [
 // Objects which are spawned as intel objects for pickup
 KPLIB_intelObjectClasses = [
     "Land_File_research_F",
+    "Land_Laptop_F",
+    "Land_MobilePhone_smart_F",
+    "Land_SatellitePhone_F",
+    "Land_Map_unfolded_F",
     "Land_Document_01_F"
 ];
 

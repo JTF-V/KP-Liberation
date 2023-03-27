@@ -120,7 +120,9 @@ GRLIB_ignore_colisions_when_building = [
     "Land_Flush_Light_yellow_F",
     "TMR_Autorest_Georef",
     "Flag_NATO_F",
+    "Flag_Vrana_F",
     "Flag_White_F",
+    "Land_Billboard_F",
     "Flag_RedCrystal_F",
     "CamoNet_BLUFOR_F",
     "CamoNet_BLUFOR_open_F",
@@ -203,6 +205,7 @@ civilian_vehicles                           = civilian_vehicles                 
 // Misc
 KPLIB_transportConfigs                      = KPLIB_transportConfigs                    select {[_x select 0] call KPLIB_fnc_checkClass};
 KPLIB_aiResupplySources                     = KPLIB_aiResupplySources                   select {[_x] call KPLIB_fnc_checkClass};
+JTFV_transportConfigs                       = JTFV_transportConfigs                     select {[_x select 0] call KPLIB_fnc_checkClass};
 
 /*
     Fetch arrays with only classnames from the blufor preset build arrays
@@ -216,6 +219,7 @@ KPLIB_b_static_classes                      = static_vehicles                   
 KPLIB_b_buildings_classes                   = buildings                                 apply {toLower (_x select 0)};
 KPLIB_b_support_classes                     = support_vehicles                          apply {toLower (_x select 0)};
 KPLIB_transport_classes                     = KPLIB_transportConfigs                    apply {toLower (_x select 0)};
+JTFV_transport_classes                      = JTFV_transportConfigs                     apply {toLower (_x select 0)};
 
 KPLIB_b_infantry_classes append (blufor_squad_inf_light + blufor_squad_inf + blufor_squad_at + blufor_squad_aa + blufor_squad_recon + blufor_squad_para);
 KPLIB_b_infantry_classes                    = KPLIB_b_infantry_classes                  apply {toLower _x};
@@ -244,6 +248,14 @@ KPLIB_airSlots          = KPLIB_airSlots            apply {toLower _x};
 KPLIB_storageBuildings  = KPLIB_storageBuildings    apply {toLower _x};
 KPLIB_upgradeBuildings  = KPLIB_upgradeBuildings    apply {toLower _x};
 KPLIB_aiResupplySources = KPLIB_aiResupplySources   apply {toLower _x};
+
+/*
+    JTF-V specific collections
+*/
+
+JTFV_crates             = [JTFV_ammo_container, JTFV_fuel_container, JTFV_repair_container, JTFV_medical_container];
+
+JTFV_crates             = JTFV_crates              apply {toLower _x};
 
 /*
     Classname collections
